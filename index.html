@@ -1,24 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botão de Redirecionamento</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        button {
-            padding: 20px 40px;
-            font-size: 24px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Redirecionamento</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background-color: #021027;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .circle-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background-image: radial-gradient(
+        hsl(180, 100%, 80%),
+        hsl(180, 100%, 80%) 10%,
+        hsla(180, 100%, 80%, 0) 56%
+      );
+      mix-blend-mode: screen;
+    }
+
+    @keyframes move-up {
+      0% {
+        transform: translateY(100%);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+    }
+
+    .circle {
+      animation: move-up linear infinite;
+    }
+
+    /* Estilizando as partículas */
+    .circle:nth-child(1) {
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 10%;
+      animation-duration: 10s;
+      animation-delay: 0s;
+    }
+
+    .circle:nth-child(2) {
+      width: 30px;
+      height: 30px;
+      top: 30%;
+      left: 20%;
+      animation-duration: 15s;
+      animation-delay: 2s;
+    }
+
+    .circle:nth-child(3) {
+      width: 25px;
+      height: 25px;
+      top: 70%;
+      left: 30%;
+      animation-duration: 12s;
+      animation-delay: 4s;
+    }
+
+    /* Adicione mais estilos para diferentes partículas se desejar */
+
+    .neon-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      font-size: 24px;
+      color: #fff;
+      background-color: #111;
+      border: 2px solid #00ffcc;
+      border-radius: 5px;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc, 0 0 20px #00ffcc;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .neon-button:hover {
+      box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+    }
+  </style>
 </head>
 <body>
-    <button onclick="window.open('https://br.betano.com/myaccount/register/', '_blank')">Ir para Registroo</button>
+  <div class="container">
+    <div class="circle-container">
+      <!-- Crie várias partículas -->
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <!-- Adicione mais divs com a classe "circle" se desejar -->
+    </div>
+    <button class="neon-button" onclick="window.open('https://br.betano.com/myaccount/register/', '_blank')">Abrir Registro</button>
+  </div>
 </body>
 </html>
